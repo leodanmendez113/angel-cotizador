@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Cotiza tu boda · Anmar Productions</title>
+  <meta name="description" content="Foto y video para tu boda con precios claros. Arma tu paquete en segundos y reserva tu fecha por WhatsApp." />
+  <meta name="theme-color" content="#FAF6F0" />
+  <link rel="icon" href="/angel-cotizador/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/angel-cotizador/logo.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/angel-cotizador/apple-touch-icon-180x180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="top">
+    <a class="marca" href="#inicio" aria-label="Anmar Productions, inicio">ANMAR<span>Productions</span></a>
+    <a class="top-cta" href="#cotizador">Cotizar</a>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-texto">
+        <p class="ceja">Bodas · Miami &amp; New York</p>
+        <h1 class="hero-titulo">
+          <span class="linea">Tu boda,</span>
+          <span class="linea">contada con</span>
+          <span class="linea"><em>calma.</em></span>
+        </h1>
+        <p class="hero-sub">Foto, video o ambos con precios claros desde el primer minuto. Sin sorpresas y sin esperar un presupuesto por correo.</p>
+        <a class="boton" href="#cotizador">Arma tu paquete</a>
+      </div>
+      <div class="arco" aria-hidden="true">
+        <div class="arco-forma">
+          <p class="arco-desde">Desde</p>
+          <p class="arco-precio" data-desde>$550</p>
+          <p class="arco-nota">Cobertura de foto</p>
+        </div>
+        <span class="destello d1"></span>
+        <span class="destello d2"></span>
+      </div>
+      <p class="scroll-pista" aria-hidden="true">Desliza</p>
+    </section>
+
+    <section class="pasos" aria-labelledby="pasos-titulo">
+      <p class="ceja">Cómo funciona</p>
+      <h2 id="pasos-titulo">Del “sí” al “acepto”, sin estrés.</h2>
+      <div class="pasos-cuerpo">
+      <span class="pasos-linea" aria-hidden="true"><span></span></span>
+      <ol class="pasos-lista">
+        <li class="paso"><span class="paso-num">01</span><h3>Elige tu cobertura</h3><p>Foto, video o los dos. Ves el precio al instante.</p></li>
+        <li class="paso"><span class="paso-num">02</span><h3>Reserva por WhatsApp</h3><p>Te llega tu cotización lista y apartamos tu fecha.</p></li>
+        <li class="paso"><span class="paso-num">03</span><h3>Planeamos juntos</h3><p>Repasamos horarios, lugares y los momentos que no pueden faltar.</p></li>
+        <li class="paso"><span class="paso-num">04</span><h3>Recibe tu galería</h3><p>Editada con cuidado, lista para descargar y compartir.</p></li>
+      </ol>
+      </div>
+    </section>
+
+    <section class="cotizador" id="cotizador" aria-labelledby="cot-titulo">
+      <div class="cot-cabecera">
+        <p class="ceja">Cotizador</p>
+        <h2 id="cot-titulo">Arma tu paquete</h2>
+        <p class="cot-sub">Elige un paquete o ajústalo a tu medida. El precio se actualiza solo.</p>
+      </div>
+
+      <div class="segmentos" role="radiogroup" aria-label="Tipo de cobertura" data-servicios></div>
+
+      <fieldset class="bloque">
+        <legend>Duración</legend>
+        <div class="paquetes" role="radiogroup" aria-label="Paquete" data-paquetes></div>
+
+        <div class="custom" data-custom hidden>
+          <div class="custom-cab">
+            <span>Horas de cobertura</span>
+            <strong data-horas-label>6 horas</strong>
+          </div>
+          <input class="rango" type="range" min="1" max="12" step="1" value="6" aria-label="Horas de cobertura" data-rango />
+          <div class="rango-marcas" aria-hidden="true"><span>1h</span><span>4h</span><span>8h</span><span>12h</span></div>
+
+          <div class="fotos" data-fotos-control>
+            <span>Fotos</span>
+            <div class="stepper">
+              <button type="button" aria-label="Quitar 10 fotos" data-menos>−</button>
+              <output data-fotos-valor>300</output>
+              <button type="button" aria-label="Agregar 10 fotos" data-mas>+</button>
+            </div>
+            <small data-fotos-nota>+10 fotos suman $50</small>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="resumen" data-resumen>
+        <div>
+          <p class="resumen-total" data-total aria-live="polite">$950</p>
+          <p class="resumen-detalle" data-detalle>8 h · 400 fotos · Foto</p>
+          <p class="resumen-incluye">Incluye edición, galería online y derechos de impresión.</p>
+        </div>
+        <a class="boton boton-grande" data-reservar target="_blank" rel="noopener">Reservar mi fecha</a>
+      </div>
+    </section>
+
+    <section class="incluye" aria-labelledby="inc-titulo">
+      <p class="ceja">En todos los paquetes</p>
+      <h2 id="inc-titulo">Lo que siempre va incluido</h2>
+      <ul class="incluye-lista">
+        <li><span>✦</span><h3>Edición a mano</h3><p>Color y retoque con un estilo cálido y natural.</p></li>
+        <li><span>✦</span><h3>Galería online</h3><p>Para descargar, compartir y guardar para siempre.</p></li>
+        <li><span>✦</span><h3>Derechos de impresión</h3><p>Imprime tus fotos donde quieras, sin costo extra.</p></li>
+      </ul>
+    </section>
+
+    <section class="cierre">
+      <h2 class="cierre-titulo">¿Ya tienes fecha?</h2>
+      <p>Las fechas se apartan por orden de reserva.</p>
+      <a class="boton" href="#cotizador">Ver mi precio</a>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>© <span data-anio></span> Anmar Productions, LLC · Miami &amp; New York</p>
+  </footer>
+
+  <div class="barra-movil" data-barra aria-hidden="true">
+    <div><strong data-barra-total>$950</strong><small data-barra-detalle>8 h · Foto</small></div>
+    <a class="boton" data-reservar target="_blank" rel="noopener" tabindex="-1">Reservar</a>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

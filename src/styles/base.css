@@ -1,0 +1,72 @@
+:root {
+  --fondo: #FAF6F0;
+  --fondo-2: #F3ECE2;
+  --tarjeta: #FFFFFF;
+  --texto: #2A2522;
+  --texto-suave: #6F655E;
+  --acento: #C9785D;
+  --acento-oscuro: #A85E46;
+  --acento-claro: #F2DDD3;
+  --champagne: #E7D3B0;
+  --borde: #E6DCD0;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --radio: 20px;
+  --sombra: 0 20px 50px -24px rgba(90, 55, 35, 0.35);
+  --gutter: clamp(16px, 5vw, 48px);
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+[hidden] { display: none !important; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font: 400 16px/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 7vw, 3.2rem); }
+h3 { font-size: 1.25rem; }
+em { font-style: italic; color: var(--acento); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; border-radius: 8px; }
+
+.ceja {
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--acento-oscuro);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--texto);
+  color: var(--fondo);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.boton:hover { background: var(--acento-oscuro); }
+.boton:active { transform: scale(0.97); }
+.boton-grande { min-height: 58px; font-size: 1.05rem; background: var(--acento); }
+.boton-grande:hover { background: var(--acento-oscuro); }
