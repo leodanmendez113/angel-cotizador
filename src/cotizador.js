@@ -1,6 +1,6 @@
 import { gsap } from 'gsap'
 import { SERVICIOS, PAQUETES, PRECIOS, cotizar, fotosIncluidas, dinero } from './precios.js'
-import { WHATSAPP } from './config.js'
+import { CONTACTO, linkWhatsApp } from './contacto.js'
 
 const $ = (sel) => document.querySelector(sel)
 const $$ = (sel) => [...document.querySelectorAll(sel)]
@@ -36,14 +36,14 @@ function grupoRadio(contenedor, opciones, alElegir) {
 function mensajeWhatsApp(c) {
   const s = SERVICIOS[estado.servicio].nombre
   const lineas = [
-    'Hola Ángel, quiero reservar mi fecha 💍',
+    CONTACTO.mensaje,
     '',
     `• Cobertura: ${s}`,
     `• Duración: ${estado.horas} ${estado.horas === 1 ? 'hora' : 'horas'}`
   ]
   if (c.fotos) lineas.push(`• Fotos: ${c.fotos}`)
   lineas.push(`• Total: ${dinero(c.total)} USD`, '', 'Fecha de la boda: ', 'Lugar: ')
-  return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lineas.join('\n'))}`
+  return linkWhatsApp(lineas.join('\n'))
 }
 
 export function iniciarCotizador() {
