@@ -1,16 +1,17 @@
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// El "base" tiene que coincidir con el nombre del repositorio en GitHub Pages.
+// En el VPS la web vive en la raíz del subdominio (base "/").
+// El respaldo en GitHub Pages compila con BASE=/angel-cotizador/.
 export default defineConfig({
-  base: '/angel-cotizador/',
+  base: process.env.BASE || '/',
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon-180x180.png', 'logo.svg'],
       manifest: {
-        name: 'Anmar Productions — Cotizador de bodas',
-        short_name: 'Cotizador',
+        name: 'Anmar Eventos — Cotizador de bodas',
+        short_name: 'Anmar Eventos',
         description: 'Arma tu paquete de foto y video para tu boda en segundos.',
         lang: 'es',
         theme_color: '#FAF6F0',
@@ -25,7 +26,14 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
+        navigateFallbackDenylist: [/^\/datos\//],
         runtimeCaching: [
+          {
+            // Los precios siempre se piden frescos; la copia guardada solo se usa sin señal.
+            urlPattern: /\/datos\/.*\.json/,
+            handler: 'NetworkFirst',
+            options: { cacheName: 'datos', networkTimeoutSeconds: 4 }
+          },
           {
             urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/,
             handler: 'CacheFirst',

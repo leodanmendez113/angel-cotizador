@@ -1,8 +1,5 @@
 import { gsap } from 'gsap'
-import {
-  SERVICIOS, PAQUETES, cotizar, fotosIncluidas, dinero,
-  FOTOS_PASO, FOTOS_EXTRA_MAX, PRECIO_PASO
-} from './precios.js'
+import { SERVICIOS, PAQUETES, PRECIOS, cotizar, fotosIncluidas, dinero } from './precios.js'
 import { WHATSAPP } from './config.js'
 
 const $ = (sel) => document.querySelector(sel)
@@ -75,8 +72,8 @@ export function iniciarCotizador() {
     estado.extra = 0
     actualizar()
   })
-  $('[data-menos]').addEventListener('click', () => { estado.extra = Math.max(0, estado.extra - FOTOS_PASO); actualizar() })
-  $('[data-mas]').addEventListener('click', () => { estado.extra = Math.min(FOTOS_EXTRA_MAX, estado.extra + FOTOS_PASO); actualizar() })
+  $('[data-menos]').addEventListener('click', () => { estado.extra = Math.max(0, estado.extra - PRECIOS.fotosPaso); actualizar() })
+  $('[data-mas]').addEventListener('click', () => { estado.extra = Math.min(PRECIOS.fotosExtraMax, estado.extra + PRECIOS.fotosPaso); actualizar() })
 
   function actualizar() {
     const esCustom = estado.paquete === 'custom'
@@ -94,10 +91,10 @@ export function iniciarCotizador() {
     $('[data-fotos-control]').hidden = !conFotos
     $('[data-fotos-valor]').textContent = c.fotos
     $('[data-menos]').disabled = estado.extra === 0
-    $('[data-mas]').disabled = estado.extra >= FOTOS_EXTRA_MAX
+    $('[data-mas]').disabled = estado.extra >= PRECIOS.fotosExtraMax
     $('[data-fotos-nota]').textContent = estado.extra
       ? `${fotosIncluidas(estado.servicio, estado.horas)} incluidas + ${estado.extra} extra`
-      : `+${FOTOS_PASO} fotos suman $${PRECIO_PASO} · hasta ${FOTOS_EXTRA_MAX} extra`
+      : `+${PRECIOS.fotosPaso} fotos suman $${PRECIOS.precioPaso} · hasta ${PRECIOS.fotosExtraMax} extra`
 
     const nombre = SERVICIOS[estado.servicio].nombre
     const detalle = [`${estado.horas} h`, c.fotos ? `${c.fotos} fotos` : null, nombre].filter(Boolean).join(' · ')
